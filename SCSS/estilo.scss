@@ -19,15 +19,15 @@
 } 
 
 :root { font-size: 14px;
-    @include tablet {font-size: 12px;}
-    @include mobile {font-size: 10px;}
 }
 
 $primary: #427909;
 $secondary: #358b3b;
-$red: #f44336;
+$red: #ca261b;
 $white: #ffffff;
 $black: #000000;
+$gray: #808080;
+$loginBtn: #4CAF50;
 
 /*Todos*/
 body {
@@ -43,7 +43,13 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
     font-weight: 700;
 	color: $black;
-	font-size: 2rem;
+    font-size: 2rem;
+    @include tablet{
+        font-size: 1.5rem;
+    }
+    @include mobile {
+        font-size: 0.9rem;
+    }
 }
 
 p {
@@ -55,58 +61,98 @@ p {
 	margin-left: 2rem;
     margin-right: 2rem;
     font-size: 1rem;
-}
-
-header {
-	display: flex;
-    align-items: center;
-	justify-content: space-between;
-	background: -webkit-linear-gradient(right, $primary, $secondary);
-    
-    //logo    
-    .logo-wrapper {
-        padding: 1rem;
-        img {
-            height: 100px;
-            width: auto;
-            border-radius: 40px;
-            padding: .5rem;
-        }
+    @include tablet{
+        font-size: 0.85rem;
     }
-
-    /*Barra de navegacion*/
-    .navegacion {
-        display: flex;
-        & > a {
-            display: grid;
-            padding: 2rem;
-            font-size: 2.5rem;
-            color: $white;
-            text-decoration:none;
-            place-items: center;
-            justify-content: center;
-        }
-        & > :hover {
-            font-weight:bolder;
-            color: $white;
-            text-decoration: none;
-        }
-            
-    }        
-    .loginbuttonheader {
-        align-items: right;
-        padding-left: 7rem;
-        background: transparent;
-        color: #ffffff;
-        padding: 14px 20px;
-    }
-    .avatarNav {
-        height: 40px;
-        width: auto;
-        border-radius: 40px;
-        padding: 0.2rem;
+    @include mobile {
+        font-size: 0.64rem;
     }
 }
+
+/*NAV BAR BOOTSTRAP*/
+.navbar-brand img {
+    height: 120px;
+    width: auto;
+    border-radius: 100px;
+    padding: .5rem; 
+  }
+  
+/*ICONO LOGIN NAV*/
+.login{
+    height: 30px;
+    width: auto;
+    border-radius: 40px;
+}
+
+.input-log {
+    padding: 12px;
+    border: 0;
+    text-align: center; 
+}
+
+
+/*MODAL*/  
+/* Avatar*/
+img.avatar {
+    width: 70px;
+    border-radius: 50%;
+}
+
+/*Contenido*/
+.modal-content {
+    width: 60%;
+    border: 3px solid $white;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 30px;
+    background: -webkit-linear-gradient(right, $primary, $secondary); 
+}    
+
+input {
+    background-color: rgba(136, 133, 133, 0.5);
+    border-radius: 5px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: $white;
+    width: 80%;
+}
+
+input::placeholder {
+    color: $white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.loginbutton {
+    background-color: $loginBtn;
+    color: $white;
+    padding: 14px 20px;
+    margin: 6px 0;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: auto; 
+    &:hover {
+        opacity: 0.8; 
+    }
+}
+
+/*"Forgot password"*/
+.psw {
+    float: right;
+    padding-top: 16px;
+    color: $red;
+    font-weight: bold;
+    &:hover{
+        color: black;
+    }
+}
+
+/*Checkbox*/
+input[type="checkbox"] {
+    position: relative;
+    width: 1em;
+    height: 1em;
+    border: 1px solid $gray; }
+
 
 /*MAIN*/
 main {
@@ -117,23 +163,22 @@ main {
         flex: 1;
         padding: 1rem;
         margin: 1rem;
-        @include mobile {    }
         @include tablet {    }
+        @include mobile {    }
     }
     aside {
-        /*max-width: 100px;*/
         flex: 100px;
         margin: 1.5rem;
         article img {
             max-width: 100%;
             height: auto;
             margin: 2rem;
-            @include mobile {
-                max-width: 40%;
-            }
-            @include tablet {
-                max-width: 60%;
-            }
+        }
+        @include tablet {
+            flex: 50px;
+        }
+        @include mobile {
+            display: none;
         }
     }    
 }
@@ -158,8 +203,14 @@ footer {
         padding-top: 1rem;
         &:hover {
             font-weight:bolder;
-            color: #ffffff;
+            color: $white;
             text-decoration: none;
+        }
+        @include tablet{
+            font-size: 0.85rem;
+        }
+        @include mobile {
+            font-size: 0.64rem;
         }
     }
 
@@ -168,6 +219,17 @@ footer {
         align-items: center;
         padding: 2rem;
         justify-content:center;
+    }
+
+    .logoRedes {
+        height: 50px;
+        width: auto;
+        @include tablet {
+            height: 30px;
+        }
+        @include mobile {
+            height: 20px;
+        }
     }
 }    
 /*Cursos*/
@@ -193,7 +255,14 @@ img.derecha {
 
 .lista {
 	color: $black;
-	line-height: 1.5rem;
+    line-height: 1.5rem;
+    font-size: 1rem;
+    @include tablet{
+        font-size: 0.85rem;
+    }
+    @include mobile {
+        font-size: 0.64rem;
+    }
 }
 
 /*Tabla*/ 
@@ -204,11 +273,17 @@ table tr th, td    {
 
 /*imagen de a tabla*/
 .imagenTabla {
-	height: auto;
-	width: auto;
-    border-radius: 20px;
-    margin: 0.5rem;
-}
+	max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+    margin: 2rem;
+        @include tablet {
+        max-width: 100%;
+        }
+        @include mobile {
+        display: none;
+        }
+    }
 
 /*Galeria*/
 .gallery-container {
@@ -216,8 +291,6 @@ table tr th, td    {
 	grid-template-columns: repeat(4, 1fr);
 	grid-auto-rows: 300px;
     grid-gap: 10px;
-    /*margin: auto;*/
-
     padding: 20px;
     @include tablet {grid-template-columns: repeat(2, 1fr)}
     @include mobile {grid-template-columns: repeat(1, 1fr)}
@@ -247,29 +320,13 @@ table tr th, td    {
     @include mobile {grid-row-start: span 1}
 }
 
-/*.gallery-item {
-	transition: all 100ms linear;
-}*/
+.gallery-item {
+	filter: grayscale(80%);
+}
 
-/*.gallery-item:hover {
-	transition: all 200ms linear;
-	transform: scale(1.1);
-	/*animation-name: girar;*/
-	/*animation-duration: 500ms;
-	animation-iteration-count: 1;
-	animation-direction: normal;
-}*/
-
-/*@keyframes girar{
-	0% {
-		transform: rotate(0deg);
-	}
-
-	100% {
-        transform: rotate(180deg);
-    }
-}*/
-
+.gallery-item:hover {
+    filter: saturate(150%);
+}
 
 /*Formulario Contacto*/
 .containerForm {
@@ -279,25 +336,12 @@ table tr th, td    {
 }
 
 #contact-section {
-	background: -webkit-linear-gradient(right, #427909, #358b3b);
 	background-size: cover;
 	background-position: center;
 	height: 100%;
 	width: 100% ;
     padding-bottom: 2%;
-    @include mobile {
-        display: block;
-		width: 100%;
-        text-align: center;
-        width: 50%;
-    }
-    @include tablet {
-        display: block;
-		width: 100%;
-        text-align: center;
-        width: 70%;
-    }
-
+       
     .containerForm h2 {
         text-align: center;
         text-decoration: underline;
@@ -321,39 +365,33 @@ table tr th, td    {
 	background-color: none;
 	border-radius: 80%;
 	margin: 2%;
-	/*cursor: pointer;*/
 	border:2px solid rgb(190, 190, 190);
-	color: $white;
-    /*:hover {
-        cursor: pointer;
-        border:2px solid $white;
-        color: $white;
-    }*/
+	color: $black;
 }
 
 .contact-form {
 	display: grid;
     grid-template-columns: auto auto;
-    @include mobile {
-        display: block;
-		width: 100%;
-        text-align: center;
-        width: 50%;
-    }
     @include tablet {
         display: block;
-		width: 100%;
-        text-align: center;
-        width: 70%;
+		width: 80%;
+        text-align: left;
     }
 }
 
 .form-info {
-	font-size: 16px;
+	font-size: 1.3rem;
 	font-style: italic;
 	color: $white;
-	letter-spacing: 2px;
+    letter-spacing: 2px;
+    @include tablet{
+        font-size: 0.85rem;
+    }
+    @include mobile {
+        font-size: 0.64rem;
+    }
 }
+
 
 input {
 	padding: 10px;
@@ -365,6 +403,9 @@ input {
     outline:none;
     &::placeholder {
         color: $white;
+    }
+    @include tablet{
+        width: 100%;
     }
 }
 
@@ -378,6 +419,9 @@ textarea {
     outline:none;
     &::placeholder {
         color: $white;
+    }
+    @include tablet{
+        width: 100%;
     }
 }
 
@@ -403,111 +447,4 @@ textarea {
     }
 }
 
-/*media queries
-@media (max-width: 768px) {
-	#contact-section .contact-form {
-		display: block;
-		width: 100%;
-		text-align: center;
-	}
-	#contact-section .submit {
-	width: 60%;
-	}
-}*/
-
-/*login en formato MODAL*/
-/*Formulario de ingreso*/
-.modal {
-	display: none; 
-	position: fixed; 
-	z-index: 1; 
-	left: 0;
-	top: 0;
-	width: 100%; 
-	height: 100%; 
-	overflow: auto; 
-	background-color: $black; 
-	background-color: #00000066; 
-	padding-top: 60px;
-  }
-  
-/* Modal Content/Box */
-.modal-content {
-	width: 40%;
-	border: 3px solid $white;
-	margin-left: auto;
-	margin-right: auto;
-	border-radius: 50px; 
-	background: -webkit-linear-gradient(right, $primary, $secondary);
-}
-
-/*Estilo de los botones*/
-.input-log {
-	padding: 12px;
-    border: 0;
-    text-align: center;
-}
-
-.loginbutton {
-    background-color: #4CAF50;
-    color: $white;
-    padding: 14px 20px;
-    margin: 6px 0;
-    border: none;
-    cursor: pointer;
-	width: auto;
-    &>:hover {
-        opacity: 0.8;
-    }
-}
-
-/*Estilo en "cancel button"*/  
-.cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: $red;
-    margin: 1.5rem;
-}
-
-/*"Forgot password"*/
-span.psw {
-    float: right;
-    padding-top: 16px;
-}
-
-/*Checkbox*/
-input[type="checkbox"] {
-	position: relative;
-	width: 1em;
-	height: 1em;
-	border: 1px solid gray;
-}
-
-/* Avatar*/
-img.avatar {
-    width: 100px;
-    border-radius: 50%;
-}
-
-/*Centrar imagen de avatar*/
-.imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-}
-  
-/*Add Zoom Animation */
-.animate {
-	-webkit-animation: animatezoom 0.6s;
-	animation: animatezoom 0.6s
-}
-  
-@-webkit-keyframes animatezoom {
-	from {-webkit-transform: scale(0)}
-	to {-webkit-transform: scale(1)}
-}
-  
-@keyframes animatezoom {
-	from {transform: scale(0)}
-	to {transform: scale(1)}
-    }
    
