@@ -3,12 +3,6 @@
 
 :root {
   font-size: 14px; }
-  @media (max-width: 1024px) {
-    :root {
-      font-size: 12px; } }
-  @media (max-width: 576px) {
-    :root {
-      font-size: 10px; } }
 
 /*Todos*/
 body {
@@ -24,6 +18,12 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   color: #000000;
   font-size: 2rem; }
+  @media (max-width: 1024px) {
+    h1, h2, h3, h4, h5, h6 {
+      font-size: 1.5rem; } }
+  @media (max-width: 576px) {
+    h1, h2, h3, h4, h5, h6 {
+      font-size: 0.9rem; } }
 
 p {
   text-align: justify;
@@ -34,45 +34,84 @@ p {
   margin-left: 2rem;
   margin-right: 2rem;
   font-size: 1rem; }
+  @media (max-width: 1024px) {
+    p {
+      font-size: 0.85rem; } }
+  @media (max-width: 576px) {
+    p {
+      font-size: 0.64rem; } }
 
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: -webkit-linear-gradient(right, #427909, #358b3b);
-  /*Barra de navegacion*/ }
-  header .logo-wrapper {
-    padding: 1rem; }
-    header .logo-wrapper img {
-      height: 100px;
-      width: auto;
-      border-radius: 40px;
-      padding: .5rem; }
-  header .navegacion {
-    display: flex; }
-    header .navegacion > a {
-      display: grid;
-      padding: 2rem;
-      font-size: 2.5rem;
-      color: #ffffff;
-      text-decoration: none;
-      place-items: center;
-      justify-content: center; }
-    header .navegacion > :hover {
-      font-weight: bolder;
-      color: #ffffff;
-      text-decoration: none; }
-  header .loginbuttonheader {
-    align-items: right;
-    padding-left: 7rem;
-    background: transparent;
-    color: #ffffff;
-    padding: 14px 20px; }
-  header .avatarNav {
-    height: 40px;
-    width: auto;
-    border-radius: 40px;
-    padding: 0.2rem; }
+/*NAV BAR BOOTSTRAP*/
+.navbar-brand img {
+  height: 120px;
+  width: auto;
+  border-radius: 100px;
+  padding: .5rem; }
+
+/*ICONO LOGIN NAV*/
+.login {
+  height: 30px;
+  width: auto;
+  border-radius: 40px; }
+
+.input-log {
+  padding: 12px;
+  border: 0;
+  text-align: center; }
+
+/*MODAL*/
+/* Avatar*/
+img.avatar {
+  width: 70px;
+  border-radius: 50%; }
+
+/*Contenido*/
+.modal-content {
+  width: 60%;
+  border: 3px solid #ffffff;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 30px;
+  background: -webkit-linear-gradient(right, #427909, #358b3b); }
+
+input {
+  background-color: rgba(136, 133, 133, 0.5);
+  border-radius: 5px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #ffffff;
+  width: 80%; }
+
+input::placeholder {
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; }
+
+.loginbutton {
+  background-color: #4CAF50;
+  color: #ffffff;
+  padding: 14px 20px;
+  margin: 6px 0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: auto; }
+  .loginbutton:hover {
+    opacity: 0.8; }
+
+/*"Forgot password"*/
+.psw {
+  float: right;
+  padding-top: 16px;
+  color: #ca261b;
+  font-weight: bold; }
+  .psw:hover {
+    color: black; }
+
+/*Checkbox*/
+input[type="checkbox"] {
+  position: relative;
+  width: 1em;
+  height: 1em;
+  border: 1px solid #808080; }
 
 /*MAIN*/
 main {
@@ -83,19 +122,18 @@ main {
     padding: 1rem;
     margin: 1rem; }
   main aside {
-    /*max-width: 100px;*/
     flex: 100px;
     margin: 1.5rem; }
     main aside article img {
       max-width: 100%;
       height: auto;
       margin: 2rem; }
-      @media (max-width: 576px) {
-        main aside article img {
-          max-width: 40%; } }
-      @media (max-width: 1024px) {
-        main aside article img {
-          max-width: 60%; } }
+    @media (max-width: 1024px) {
+      main aside {
+        flex: 50px; } }
+    @media (max-width: 576px) {
+      main aside {
+        display: none; } }
 
 /*Footer*/
 footer {
@@ -117,11 +155,26 @@ footer {
       font-weight: bolder;
       color: #ffffff;
       text-decoration: none; }
+    @media (max-width: 1024px) {
+      footer .mailto a {
+        font-size: 0.85rem; } }
+    @media (max-width: 576px) {
+      footer .mailto a {
+        font-size: 0.64rem; } }
   footer .redes {
     display: flex;
     align-items: center;
     padding: 2rem;
     justify-content: center; }
+  footer .logoRedes {
+    height: 50px;
+    width: auto; }
+    @media (max-width: 1024px) {
+      footer .logoRedes {
+        height: 30px; } }
+    @media (max-width: 576px) {
+      footer .logoRedes {
+        height: 20px; } }
 
 /*Cursos*/
 img.izquierda, .derecha {
@@ -142,7 +195,14 @@ img.derecha {
 
 .lista {
   color: #000000;
-  line-height: 1.5rem; }
+  line-height: 1.5rem;
+  font-size: 1rem; }
+  @media (max-width: 1024px) {
+    .lista {
+      font-size: 0.85rem; } }
+  @media (max-width: 576px) {
+    .lista {
+      font-size: 0.64rem; } }
 
 /*Tabla*/
 table tr th, td {
@@ -151,10 +211,16 @@ table tr th, td {
 
 /*imagen de a tabla*/
 .imagenTabla {
+  max-width: 80%;
   height: auto;
-  width: auto;
-  border-radius: 20px;
-  margin: 0.5rem; }
+  border-radius: 10px;
+  margin: 2rem; }
+  @media (max-width: 1024px) {
+    .imagenTabla {
+      max-width: 100%; } }
+  @media (max-width: 576px) {
+    .imagenTabla {
+      display: none; } }
 
 /*Galeria*/
 .gallery-container {
@@ -162,7 +228,6 @@ table tr th, td {
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 300px;
   grid-gap: 10px;
-  /*margin: auto;*/
   padding: 20px; }
   @media (max-width: 1024px) {
     .gallery-container {
@@ -203,26 +268,12 @@ table tr th, td {
     .gallery-item:nth-child(6) {
       grid-row-start: span 1; } }
 
-/*.gallery-item {
-	transition: all 100ms linear;
-}*/
-/*.gallery-item:hover {
-	transition: all 200ms linear;
-	transform: scale(1.1);
-	/*animation-name: girar;*/
-/*animation-duration: 500ms;
-	animation-iteration-count: 1;
-	animation-direction: normal;
-}*/
-/*@keyframes girar{
-	0% {
-		transform: rotate(0deg);
-	}
+.gallery-item {
+  filter: grayscale(80%); }
 
-	100% {
-        transform: rotate(180deg);
-    }
-}*/
+.gallery-item:hover {
+  filter: saturate(150%); }
+
 /*Formulario Contacto*/
 .containerForm {
   width: 90%;
@@ -230,24 +281,11 @@ table tr th, td {
   overflow: hidden; }
 
 #contact-section {
-  background: -webkit-linear-gradient(right, #427909, #358b3b);
   background-size: cover;
   background-position: center;
   height: 100%;
   width: 100%;
   padding-bottom: 2%; }
-  @media (max-width: 576px) {
-    #contact-section {
-      display: block;
-      width: 100%;
-      text-align: center;
-      width: 50%; } }
-  @media (max-width: 1024px) {
-    #contact-section {
-      display: block;
-      width: 100%;
-      text-align: center;
-      width: 70%; } }
   #contact-section .containerForm h2 {
     text-align: center;
     text-decoration: underline;
@@ -269,36 +307,29 @@ table tr th, td {
   background-color: none;
   border-radius: 80%;
   margin: 2%;
-  /*cursor: pointer;*/
   border: 2px solid #bebebe;
-  color: #ffffff;
-  /*:hover {
-        cursor: pointer;
-        border:2px solid $white;
-        color: $white;
-    }*/ }
+  color: #000000; }
 
 .contact-form {
   display: grid;
   grid-template-columns: auto auto; }
-  @media (max-width: 576px) {
-    .contact-form {
-      display: block;
-      width: 100%;
-      text-align: center;
-      width: 50%; } }
   @media (max-width: 1024px) {
     .contact-form {
       display: block;
-      width: 100%;
-      text-align: center;
-      width: 70%; } }
+      width: 80%;
+      text-align: left; } }
 
 .form-info {
-  font-size: 16px;
+  font-size: 1.3rem;
   font-style: italic;
   color: #ffffff;
   letter-spacing: 2px; }
+  @media (max-width: 1024px) {
+    .form-info {
+      font-size: 0.85rem; } }
+  @media (max-width: 576px) {
+    .form-info {
+      font-size: 0.64rem; } }
 
 input {
   padding: 10px;
@@ -310,6 +341,9 @@ input {
   outline: none; }
   input::placeholder {
     color: #ffffff; }
+  @media (max-width: 1024px) {
+    input {
+      width: 100%; } }
 
 textarea {
   padding: 10px;
@@ -321,6 +355,9 @@ textarea {
   outline: none; }
   textarea::placeholder {
     color: #ffffff; }
+  @media (max-width: 1024px) {
+    textarea {
+      width: 100%; } }
 
 .submit {
   width: 40%;
@@ -341,101 +378,3 @@ textarea {
     border: 1px solid #ffffff;
     color: #ffffff;
     cursor: pointer; }
-
-/*media queries
-@media (max-width: 768px) {
-	#contact-section .contact-form {
-		display: block;
-		width: 100%;
-		text-align: center;
-	}
-	#contact-section .submit {
-	width: 60%;
-	}
-}*/
-/*login en formato MODAL*/
-/*Formulario de ingreso*/
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: #000000;
-  background-color: #00000066;
-  padding-top: 60px; }
-
-/* Modal Content/Box */
-.modal-content {
-  width: 40%;
-  border: 3px solid #ffffff;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 50px;
-  background: -webkit-linear-gradient(right, #427909, #358b3b); }
-
-/*Estilo de los botones*/
-.input-log {
-  padding: 12px;
-  border: 0;
-  text-align: center; }
-
-.loginbutton {
-  background-color: #4CAF50;
-  color: #ffffff;
-  padding: 14px 20px;
-  margin: 6px 0;
-  border: none;
-  cursor: pointer;
-  width: auto; }
-  .loginbutton > :hover {
-    opacity: 0.8; }
-
-/*Estilo en "cancel button"*/
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
-  margin: 1.5rem; }
-
-/*"Forgot password"*/
-span.psw {
-  float: right;
-  padding-top: 16px; }
-
-/*Checkbox*/
-input[type="checkbox"] {
-  position: relative;
-  width: 1em;
-  height: 1em;
-  border: 1px solid gray; }
-
-/* Avatar*/
-img.avatar {
-  width: 100px;
-  border-radius: 50%; }
-
-/*Centrar imagen de avatar*/
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0; }
-
-/*Add Zoom Animation */
-.animate {
-  -webkit-animation: animatezoom 0.6s;
-  animation: animatezoom 0.6s; }
-
-@-webkit-keyframes animatezoom {
-  from {
-    -webkit-transform: scale(0); }
-  to {
-    -webkit-transform: scale(1); } }
-
-@keyframes animatezoom {
-  from {
-    transform: scale(0); }
-  to {
-    transform: scale(1); } }
