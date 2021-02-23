@@ -140,14 +140,20 @@ footer {
   padding: 1rem;
   text-align: center; }
   footer p {
-    font-weight: bold;
-    font-size: 20px;
+    /*font-weight:bold;*/
+    font-size: 1rem;
     text-align: center;
     color: #ffffff;
-    text-shadow: 2px 2px 2px #000000;
+    /*text-shadow: 2px 2px 2px $black;*/
     padding-top: 1rem; }
+    @media (max-width: 1024px) {
+      footer p {
+        font-size: 0.75rem; } }
+    @media (max-width: 576px) {
+      footer p {
+        font-size: 0.60rem; } }
   footer .mailto a {
-    font-size: 20px;
+    font-size: 1.2rem;
     color: #ffffff;
     text-shadow: 2px 2px 2px #000000;
     padding-top: 1rem; }
@@ -157,10 +163,10 @@ footer {
       text-decoration: none; }
     @media (max-width: 1024px) {
       footer .mailto a {
-        font-size: 0.85rem; } }
+        font-size: 0.75rem; } }
     @media (max-width: 576px) {
       footer .mailto a {
-        font-size: 0.64rem; } }
+        font-size: 0.60rem; } }
   footer .redes {
     display: flex;
     align-items: center;
@@ -185,13 +191,25 @@ img.izquierda, .derecha {
 
 img.izquierda {
   float: left; }
+  @media (max-width: 576px) {
+    img.izquierda {
+      display: none; } }
 
 img.derecha {
   float: right; }
+  @media (max-width: 576px) {
+    img.derecha {
+      display: none; } }
 
 .cursos {
+  padding-top: 1.5rem; }
+
+.cursos p {
   padding: 2rem;
   margin: 2rem; }
+  @media (max-width: 576px) {
+    .cursos p {
+      margin: 0; } }
 
 .lista {
   color: #000000;
@@ -202,12 +220,16 @@ img.derecha {
       font-size: 0.85rem; } }
   @media (max-width: 576px) {
     .lista {
-      font-size: 0.64rem; } }
+      font-size: 0.64rem;
+      width: 100%; } }
 
 /*Tabla*/
 table tr th, td {
   color: #ffffff;
   text-align: center; }
+  @media (max-width: 576px) {
+    table tr th, td {
+      width: 100%; } }
 
 /*imagen de a tabla*/
 .imagenTabla {
@@ -323,13 +345,13 @@ table tr th, td {
   font-size: 1.3rem;
   font-style: italic;
   color: #ffffff;
-  letter-spacing: 2px; }
+  /*letter-spacing: 2px;*/ }
   @media (max-width: 1024px) {
     .form-info {
-      font-size: 0.85rem; } }
+      font-size: 0.80rem; } }
   @media (max-width: 576px) {
     .form-info {
-      font-size: 0.64rem; } }
+      font-size: 0.60rem; } }
 
 input {
   padding: 10px;
